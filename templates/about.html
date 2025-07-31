@@ -1,0 +1,253 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="about-container" style="background-image: url('{{ url_for('static', filename='images/Background.jpg') }}')">
+    <section class="team-section">
+        <h2 class="section-title">Our Team</h2>
+        
+        <!-- Newsletter and Video Section -->
+        <div class="media-links">
+            <a href="https://www.linkedin.com/pulse/transforming-navigation-innovation-niruta-neupane-imgtf/?trackingId=%2FuZGwF83SRySGa1Uab%2FupA%3D%3D" 
+               target="_blank" 
+               class="media-link newsletter">
+                Read Our Newsletter
+            </a>
+            <a href="https://youtu.be/zY1xaTJ0Llk" 
+               target="_blank" 
+               class="media-link video">
+                Watch Our Video
+            </a>
+        </div>
+
+        <div class="team-members">
+            <div class="member-card">
+                <img src="{{ url_for('static', filename='images/Niruta.jpg') }}" alt="Niruta Neupane" class="member-photo">
+                <div class="member-info">
+                    <h3>Niruta Neupane</h3>
+                    <p class="member-role">Frontend & Backend Developer</p>
+                    <p class="member-description">Specialized in algorithm development and system architecture. Leads the technical development of our smart routing solutions.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/niruta-neupane-b6ab4a24b/" target="_blank" class="social-link">LinkedIn</a>
+                        <a href="https://github.com/NirrWorks" target="_blank" class="social-link">GitHub</a>
+                        <a href="https://www.linkedin.com/pulse/transforming-navigation-innovation-niruta-neupane-imgtf/?trackingId=%2FuZGwF83SRySGa1Uab%2FupA%3D%3D" 
+                           class="social-link newsletter-link" target="_blank">Newsletter</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="member-card">
+                <img src="{{ url_for('static', filename='images/Sudipta.jpg') }}" alt="Sudipta Poudel" class="member-photo">
+                <div class="member-info">
+                    <h3>Sudipta Poudel</h3>
+                    <p class="member-role">Frontend Developer</p>
+                    <p class="member-description">Expert in creating intuitive user interfaces and responsive design. Brings our navigation solutions to life with seamless user experiences.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/sudipta-poudel-9670aa225/" target="_blank" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="member-card">
+                <img src="{{ url_for('static', filename='images/Pratima.jpg') }}" alt="Pratima Thapa" class="member-photo">
+                <div class="member-info">
+                    <h3>Pratima Thapa</h3>
+                    <p class="member-role">Data Analyst</p>
+                    <p class="member-description">Specializes in data analysis and optimization. Ensures our routing algorithms deliver the most efficient and reliable paths.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+.about-container {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 6rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 3rem;
+    font-family: 'Playfair Display', serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.media-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.media-link {
+    background: rgba(255, 255, 255, 0.95);
+    color: #2C344B;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.media-link:hover {
+    transform: translateY(-3px);
+    background: #2C344B;
+    color: white;
+}
+
+.media-link::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.newsletter::before {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>');
+}
+
+.video::before {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 9.5v-6l6 3-6 3z"/></svg>');
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.member-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 2rem;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+}
+
+.member-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 3px solid #2C344B;
+}
+
+.member-info h3 {
+    font-size: 1.5rem;
+    color: #2C344B;
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.member-role {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.member-description {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    color: #2C344B;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #2C344B;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: #2C344B;
+    color: white;
+}
+
+.newsletter-link {
+    background-color: #0077b5;
+    color: white;
+    border-color: #0077b5;
+}
+
+.newsletter-link:hover {
+    background-color: #005582;
+    border-color: #005582;
+}
+
+@media (max-width: 1024px) {
+    .team-members {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .member-card {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .media-links {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-container {
+        padding: 4rem 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .member-card {
+        padding: 1.5rem;
+    }
+}
+</style>
+{% endblock %}

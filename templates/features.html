@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="features-container" style="background-image: url('{{ url_for('static', filename='images/Background.jpg') }}')">
+    <div class="map-container">
+        <div id="map"></div>
+        <div class="map-controls">
+            <select id="baseMapLayer">
+                <option value="streets">Streets</option>
+                <option value="satellite">Satellite</option>
+                <option value="terrain">Terrain</option>
+            </select>
+            <button id="toggleHotspots">Toggle Hotspots</button>
+            <button id="toggleAnalysis">Show Analysis</button>
+        </div>
+    </div>
+    
+    <div id="analysisPanel" class="hidden">
+        <div class="analysis-charts">
+            <div class="chart-container">
+                <canvas id="barChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.features-container {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 1rem 2rem; /* Reduced top padding from 6rem to 1rem */
+}
+
+@media (max-width: 480px) {
+    .features-container {
+        padding: 1rem; /* Reduced padding for mobile */
+    }
+}
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        initMap();
+        initCharts();
+    });
+</script>
+{% endblock %}

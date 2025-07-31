@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="map-hero" style="background-image: url('{{ url_for('static', filename='images/Background.jpg') }}')">
+    <div class="hero-content">
+        <h1>Smart Navigation and Routing</h1>
+        <p class="subtitle">Navigate your city with confidence using intelligent routing</p>
+        
+        <div class="cta-buttons">
+            <a href="{{ url_for('features') }}" class="cta-button primary">
+                Get Started
+            </a>
+            <a href="{{ url_for('documentation') }}" class="cta-button secondary">
+                <span class="search-icon">🔍</span>
+                Learn More
+            </a>
+        </div>
+    </div>
+
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">🚦</div>
+            <h3>Smart Routing</h3>
+            <p>Advanced algorithms find the fastest and safest routes</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Points of Interest</h3>
+            <p>Discover popular landmarks and attractions</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3>Safety First</h3>
+            <p>Smart routing that avoids high-risk areas</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Analytics</h3>
+            <p>Get detailed insights about your routes</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

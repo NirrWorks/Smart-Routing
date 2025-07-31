@@ -1,0 +1,355 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="documentation-container" style="background-image: url('{{ url_for('static', filename='images/Background.jpg') }}')">
+    <div class="docs-wrapper">
+        <!-- Table of Contents Navigation -->
+        <nav class="table-of-contents">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#executive-summary">Executive Summary</a></li>
+                <li><a href="#project-overview">Project Overview</a></li>
+                <li><a href="#system-architecture">System Architecture</a></li>
+                <li><a href="#real-time-routing">Real-Time Routing</a></li>
+                <li><a href="#accident-hotspot">Accident Hotspot Visualization</a></li>
+                <li><a href="#proximity-analysis">Proximity Analysis</a></li>
+                <li><a href="#landmark-analysis">Landmark Analysis</a></li>
+                <li><a href="#system-integration">System Integration</a></li>
+                <li><a href="#website-pages">Website Pages</a></li>
+                <li><a href="#testing">Testing and Validation</a></li>
+                <li><a href="#future">Future Enhancements</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+                <li><a href="#installation">Installation Guide</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="documentation-content">
+            <h1>Smart Navigation and Routing System: Technical Documentation</h1>
+            
+            <section id="executive-summary">
+                <h2>Executive Summary</h2>
+                <p>The Smart Navigation and Routing System is a dynamic WebGIS application designed to address real-world challenges in geospatial navigation and routing. By utilizing modern web technologies and spatial data integration, this project demonstrates an innovative approach to enhancing navigation systems. The application not only provides real-time routing but also incorporates safety features such as accident hotspot visualization and proximity analysis for essential amenities.</p>
+            </section>
+
+            <section id="project-overview">
+                <h2>Project Overview</h2>
+                <h3>Objectives</h3>
+                <ol>
+                    <li>To provide real-time routing solutions that prioritize safety and efficiency.</li>
+                    <li>To identify and visualize accident-prone areas to inform safer travel decisions.</li>
+                    <li>To enable users to discover nearby amenities based on proximity analysis.</li>
+                    <li>To integrate diverse geospatial data sources into a cohesive navigation solution.</li>
+                </ol>
+
+                <h3>Problem Statement</h3>
+                <p>Traditional navigation systems often lack contextual data such as safety indicators or localized amenity information. This can result in suboptimal routing decisions, especially in areas with frequent accidents or limited infrastructure. By integrating accident data, proximity analysis, and advanced geospatial visualization, this system aims to overcome these limitations and provide a more informed and user-centric navigation experience.</p>
+            </section>
+
+            <section id="system-architecture">
+                <h2>System Architecture</h2>
+                <p>The Smart Navigation and Routing System employs a robust three-tier architecture comprising the presentation layer, application layer, and data layer.</p>
+
+                <h3>1. Presentation Layer (Frontend)</h3>
+                <ul>
+                    <li><strong>Technologies Used:</strong> HTML5, CSS, JavaScript, and Bootstrap</li>
+                    <li><strong>Features:</strong>
+                        <ul>
+                            <li>Interactive map visualization powered by Leaflet.js</li>
+                            <li>Responsive design for compatibility across devices</li>
+                            <li>Dynamic data rendering for real-time updates</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>2. Application Layer (Backend)</h3>
+                <ul>
+                    <li><strong>Technologies Used:</strong> Flask Framework</li>
+                    <li><strong>Responsibilities:</strong>
+                        <ul>
+                            <li>Managing server-side logic for routing, data processing, and API integrations</li>
+                            <li>Handling geospatial queries and performing analysis using libraries like GDAL</li>
+                        </ul>
+                    </li>
+                </ul>
+                <img src="{{ url_for('static', filename='images/1.jpg') }}" alt="System Architecture Diagram" class="doc-image">
+
+                <h3>3. Data Layer</h3>
+                <ul>
+                    <li><strong>Database:</strong> PostgreSQL with PostGIS extension</li>
+                    <li><strong>Additional Tools:</strong> GeoServer for serving spatial data layers</li>
+                    <li><strong>Key Features:</strong>
+                        <ul>
+                            <li>Efficient storage and querying of geospatial data</li>
+                            <li>Integration with APIs for real-time data retrieval</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="real-time-routing">
+                <h2>Real-Time Routing</h2>
+                <p>The system integrates the OSRM (Open Source Routing Machine) API to provide users with real-time routing capabilities. Users can select two points on the map, and the system calculates the optimal route based on distance and road network data.</p>
+                <img src="{{ url_for('static', filename='images/2.jpg') }}" alt="Real-time Routing Demonstration" class="doc-image">
+            </section>
+
+            <section id="accident-hotspot">
+                <h2>Accident Hotspot Visualization</h2>
+                <p>This feature uses GeoServer to visualize accident-prone areas on the map. The hotspots are represented using heatmap layers, with color intensity indicating the frequency of incidents. Users can interact with the map to view detailed information about each hotspot, such as the number of accidents and primary causes.</p>
+            </section>
+
+            <section id="proximity-analysis">
+                <h2>Proximity Analysis</h2>
+                <p>Using the Overpass API, the system enables users to discover nearby amenities, such as schools, hospitals, fuel stations, and Electronic Vehicles(EV) stations within 2 KM rad based on a selected location. This feature enhances the user experience by providing valuable contextual data for route planning.</p>
+                <img src="{{ url_for('static', filename='images/3.jpg') }}" alt="Proximity Analysis Feature" class="doc-image">
+            </section>
+
+            <section id="landmark-analysis">
+                <h2>Landmark Analysis</h2>
+                <p>When clicked on any region of map, it shows the famous landmark region as the markers of different colour.</p>
+            </section>
+
+            <section id="system-integration">
+                <h2>System Integration and Data Layers</h2>
+                <h3>GeoServer Integration</h3>
+                <p>GeoServer serves spatial data layers such as accident hotspots and administrative boundaries. The data is styled and published using GeoServer's Web Map Service (WMS), enabling seamless integration with the frontend map.</p>
+
+                <h3>PostGIS Database</h3>
+                <p>The PostgreSQL database is extended with PostGIS to handle geospatial data efficiently. Accident hotspots and other spatial datasets are stored as geometric features, enabling advanced spatial queries.</p>
+            </section>
+
+            <section id="website-pages">
+                <h2>Website Pages</h2>
+                <h3>Home Page</h3>
+                <p>The homepage features an interactive map with routing, hotspot visualization, and proximity analysis functionalities. Users can interact with the map to explore various features and obtain real-time information.</p>
+
+                <h3>About Page</h3>
+                <ul>
+                    <li>Details about the project and its objectives</li>
+                    <li>Information about the development team</li>
+                    <li>An embedded video explaining the application's functionalities</li>
+                    <li>A newsletter subscription form</li>
+                </ul>
+
+                <h3>Technical Documentation Page</h3>
+                <ul>
+                    <li>Objectives and use cases</li>
+                    <li>Technology stack and system architecture</li>
+                    <li>User guide and troubleshooting tips</li>
+                </ul>
+            </section>
+
+            <section id="testing">
+                <h2>Testing and Validation</h2>
+                <h3>Performance Testing</h3>
+                <p>The application's performance was validated to ensure:</p>
+                <ul>
+                    <li>Route calculation response times of less than 2 seconds</li>
+                    <li>Smooth rendering of map layers at 60 fps</li>
+                </ul>
+            </section>
+
+            <section id="future">
+                <h2>Future Enhancements</h2>
+                <ol>
+                    <li>Real-Time Traffic Data Integration: To account for live traffic conditions during route planning</li>
+                    <li>Machine Learning Models: For predicting accident-prone areas based on historical data</li>
+                    <li>Mobile Application Development: To extend accessibility to smartphones and tablets</li>
+                    <li>Enhanced Analytics Dashboard: Providing users with detailed insights into their travel patterns</li>
+                </ol>
+            </section>
+
+            <section id="conclusion">
+                <h2>Conclusion</h2>
+                <p>The Smart Navigation and Routing System successfully demonstrates the potential of WebGIS technologies in addressing real-world challenges. By integrating spatial data, advanced analysis tools, and user-friendly interfaces, the application provides a comprehensive solution for safe and efficient navigation. With future enhancements, it has the potential to become a valuable tool for urban planning and transportation management.</p>
+            </section>
+
+            <section id="installation">
+                <h2>Installation Guide</h2>
+                <div class="code-block">
+                    <code>cd path/to/main/code</code>
+                    <code>Python -m venv venv</code>
+                    <code>venv\Scripts\activate</code>
+                    <code>pip install -r requirements.txt</code>
+                    <code>python app.py</code>
+                </div>
+                <p>Note: For conda, you need to follow different commands.</p>
+            </section>
+        </div>
+    </div>
+</div>
+
+<style>
+.documentation-container {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 2rem;
+    color: #333;
+}
+
+.docs-wrapper {
+    display: flex;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.table-of-contents {
+    position: sticky;
+    top: 2rem;
+    width: 250px;
+    height: fit-content;
+    background: #2C344B;
+    padding: 1.5rem;
+    border-radius: 8px;
+    color: white;
+}
+
+.table-of-contents h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.table-of-contents ul {
+    list-style: none;
+    padding: 0;
+}
+
+.table-of-contents li {
+    margin-bottom: 0.5rem;
+}
+
+.table-of-contents a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+    display: block;
+    padding: 0.3rem 0;
+}
+
+.table-of-contents a:hover {
+    color: #9DA5B4;
+}
+
+.documentation-content {
+    flex: 1;
+    max-width: 900px;
+}
+
+.documentation-content h1 {
+    font-size: 2.5rem;
+    color: #2C344B;
+    margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.documentation-content h2 {
+    font-size: 1.8rem;
+    color: #2C344B;
+    margin: 2rem 0 1rem;
+    font-family: 'Playfair Display', serif;
+    border-bottom: 2px solid #2C344B;
+    padding-bottom: 0.5rem;
+}
+
+.documentation-content h3 {
+    font-size: 1.4rem;
+    color: #2C344B;
+    margin: 1.5rem 0 1rem;
+}
+
+.documentation-content p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.documentation-content ul,
+.documentation-content ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.documentation-content li {
+    margin-bottom: 0.5rem;
+}
+
+.doc-image {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.code-block {
+    background: #2C344B;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.code-block code {
+    display: block;
+    color: white;
+    font-family: monospace;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+@media (max-width: 1024px) {
+    .docs-wrapper {
+        flex-direction: column;
+    }
+
+    .table-of-contents {
+        width: 100%;
+        position: static;
+        margin-bottom: 2rem;
+    }
+
+    .documentation-content {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .documentation-container {
+        padding: 1rem;
+    }
+
+    .docs-wrapper {
+        padding: 1rem;
+    }
+
+    .documentation-content h1 {
+        font-size: 2rem;
+    }
+
+    .documentation-content h2 {
+        font-size: 1.5rem;
+    }
+}
+</style>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
+{% endblock %}

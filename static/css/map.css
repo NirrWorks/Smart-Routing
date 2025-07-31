@@ -1,0 +1,223 @@
+/* map.css - Map and related controls styles */
+
+/* Map Container and Controls */
+.map-container {
+    padding: 20px;
+    position: relative;
+}
+
+/* Map Styles */
+#map {
+    border: 3px solid #850437;
+    height: 550px;
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: center;
+}
+
+.leaflet-custom-control {
+    background: rgb(234, 205, 205);
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+.map-control-select {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #c72b2b;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
+}
+
+.map-control-btn {
+    display: block;
+    background-color: #004080;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin: 4px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px;
+    width: 150px;
+}
+
+.map-control-btn:hover {
+    background-color: #003366;
+}
+
+.map-control-btn.active {
+    background-color: #003366;
+}
+
+/* Location Feature Styles */
+.map-control-btn:disabled {
+    background-color: #667788;
+    cursor: wait;
+    opacity: 0.7;
+}
+
+.custom-location-marker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.location-accuracy-circle {
+    stroke: #4285f4;
+    stroke-width: 1;
+    stroke-opacity: 0.8;
+    fill: #4285f4;
+    fill-opacity: 0.1;
+}
+
+.location-pulse {
+    border-radius: 50%;
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    background: #4285f4;
+    border: 2px solid white;
+    animation: pulse 2s ease-out infinite;
+    transform: scale(1);
+    box-shadow: 0 0 2px 2px rgba(66, 133, 244, 0.3);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(66, 133, 244, 0.4);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(66, 133, 244, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(66, 133, 244, 0);
+    }
+}
+
+/* Leaflet Specific Overrides */
+.leaflet-popup-content {
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 8px;
+}
+
+.leaflet-popup-content-wrapper {
+    border-radius: 4px;
+}
+
+.leaflet-control-layers {
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Hotspot Styles */
+.hotspot-marker {
+    background-color: #ff7800;
+    border: 2px solid #000;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.hotspot-popup {
+    min-width: 200px;
+}
+
+/* Route Information Styles */
+.route-info {
+    background: white;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    min-width: 200px;
+}
+
+.route-info-popup {
+    padding: 10px;
+    min-width: 200px;
+}
+
+.route-info-popup strong {
+    color: #004080;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Proximity Analysis Styles */
+.proximity-circle {
+    stroke: #3388ff;
+    stroke-width: 2;
+    stroke-opacity: 0.8;
+    fill: #3388ff;
+    fill-opacity: 0.1;
+}
+
+.proximity-popup {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #004080;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design for Map */
+@media (max-width: 768px) {
+    #map {
+        height: 350px;
+    }
+
+    .leaflet-custom-control {
+        margin-top: 40px;
+    }
+
+    .route-info {
+        width: calc(100% - 40px);
+        position: static;
+        margin: 10px auto;
+    }
+
+    .map-control-btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+}

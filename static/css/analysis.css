@@ -1,0 +1,44 @@
+/* analysis.css - Analysis panel and charts styles */
+
+/* Analysis Panel */
+#analysisPanel {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Analysis Charts */
+.analysis-charts {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.chart-container {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 200px;
+    border: 1px solid #e0e0e0;
+}
+
+/* Specific size for pie chart container */
+.chart-container:nth-child(2) {
+    height: 250px;
+}
+
+/* Responsive Design for Analysis */
+@media (max-width: 768px) {
+    .analysis-charts {
+        grid-template-columns: 1fr;
+    }
+    
+    .chart-container,
+    .chart-container:nth-child(2) {
+        height: 200px;
+    }
+}

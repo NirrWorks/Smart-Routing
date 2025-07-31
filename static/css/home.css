@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+/* Hero Section */
+.map-hero {
+    min-height: calc(100vh);
+    background-color: #f5f5f5;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+.transparent-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1000;
+    background: linear-gradient(to bottom, rgba(44, 52, 75, 0.9), transparent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* Hero Content */
+.hero-content {
+    position: relative;
+    left: 5%;
+    max-width: 600px;  /* Increased from 400px */
+    color: #2C344B;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 9px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transform: none;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #2C344B;
+    line-height: 1.2;
+    font-family: "Playfair Display", serif;
+    white-space: nowrap;
+}
+
+.hero-content .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #2C344B;
+    opacity: 0.9;
+    line-height: 1.6;
+    white-space: nowrap;
+}
+
+/* CTA Buttons */
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cta-button.primary {
+    background-color: #2C344B;
+    color: white;
+}
+
+.cta-button.secondary {
+    background-color: rgba(44, 52, 75, 0.1);
+    color: #2C344B;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-icon {
+    font-size: 1.2rem;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Feature Cards Section */
+.features-grid {
+    position: absolute;
+    right: 3%;  /* Adjusted from 5% to maintain spacing */
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 600px;
+    background: transparent;
+    margin-top: 0;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(44, 52, 75, 0.1);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(44, 52, 75, 0.1);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #2C344B;
+}
+
+.feature-card h3 {
+    color: #2C344B;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-family: "Playfair Display", serif;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .map-hero {
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .hero-content {
+        left: 0;
+        margin-bottom: 2rem;
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .features-grid {
+        position: relative;
+        right: 0;
+        transform: none;
+        width: 100%;
+        max-width: 800px;
+        margin: 2rem auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .hero-content {
+        left: 5%;
+        right: 5%;
+        padding: 2rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+        white-space: normal;
+    }
+    
+    .hero-content .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+    }
+}
